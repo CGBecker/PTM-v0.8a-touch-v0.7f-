@@ -1,0 +1,21 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Collectable : MonoBehaviour {
+	public string targetTag = "Player";
+
+	public void OnTriggerEnter2D(Collider2D target){
+		if (target.gameObject.tag == targetTag) {
+			OnCollect(target.gameObject);
+			OnDestroy();
+		}
+	}
+
+	protected virtual void OnCollect(GameObject target){
+
+	}
+
+	protected virtual void OnDestroy(){
+		Destroy(gameObject);
+	}
+}
